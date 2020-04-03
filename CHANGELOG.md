@@ -2,6 +2,6 @@
 
 * initRelease
 
-## 1.0.1
+## 1.0.2
 
-* update
+* update class name

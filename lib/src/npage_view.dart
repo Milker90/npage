@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'page_build_widget.dart';
-import 'page_view_state.dart';
+import 'npage_build_widget.dart';
+import 'npage_view_state.dart';
 import 'view_model.dart';
 
-abstract class PageView<T extends ViewModel, S extends PageViewState> extends StatelessWidget
-    implements PageBuildWidget {
+abstract class NPageView<T extends ViewModel, S extends NPageViewState> extends StatelessWidget
+    implements NPageBuildWidget {
   
   initData(BuildContext context) {
 
@@ -21,18 +21,18 @@ abstract class PageView<T extends ViewModel, S extends PageViewState> extends St
     initData(context);
     return Consumer<S>(
       builder: (context, pageState, child) {
-      if (pageState.state == PageViewStateValue.PageViewInit) {
+      if (pageState.state == NPageViewStateValue.Init) {
         return buildInitWidget(context);
-      } else if (pageState.state == PageViewStateValue.PageViewShowFullScreenLoading) {
+      } else if (pageState.state == NPageViewStateValue.ShowFullScreenLoading) {
         return buildFullScreenLoadingWidget(context);
-      } else if (pageState.state == PageViewStateValue.PageViewLoadedFail) {
+      } else if (pageState.state == NPageViewStateValue.LoadedFail) {
         return buildLoadedFailWidget(
           context
         );
       } else if (pageState.state ==
-          PageViewStateValue.PageViewLoadedSuccess) {
+          NPageViewStateValue.LoadedSuccess) {
         return buildContent(context);
-      } else if (pageState.state == PageViewStateValue.PageViewsEmpty) {
+      } else if (pageState.state == NPageViewStateValue.Empty) {
         return buildEmptyWidget(context);
       } else {
         debugPrint(

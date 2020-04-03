@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'page_view_state.dart';
+import 'npage_view_state.dart';
 
 class ViewModel extends ChangeNotifier {
-  final PageViewState pageViewState;
+  final NPageViewState pageViewState;
   ViewModel( 
-    {pageViewStateValue : PageViewStateValue.PageViewInit})
-    : pageViewState = PageViewState(pageViewStateValue);  
+    {pageViewStateValue : NPageViewStateValue.Init})
+    : pageViewState = NPageViewState(pageViewStateValue);  
 }

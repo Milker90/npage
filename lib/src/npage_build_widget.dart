@@ -1,7 +1,7 @@
 
 import 'package:flutter/cupertino.dart';
 
-abstract class PageBuildWidget {
+abstract class NPageBuildWidget {
   // build init widget
   Widget buildInitWidget(BuildContext context);
 
