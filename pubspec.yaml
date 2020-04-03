@@ -1,7 +1,6 @@
 name: npage
 description: npage is a library to implement basic pages. It uses MVVM architecture.
 version: 1.0.0
-author: Milker90
 homepage: https://github.com/Milker90/npage.git
 
 environment:
