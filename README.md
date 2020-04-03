@@ -1,6 +1,6 @@
 # npage
 
-npage is a simple and fast library to implement basic pages. It uses MVVM architecture.
+npage is a library to implement basic pages. It uses MVVM architecture.
 
 ## Installing
 ```

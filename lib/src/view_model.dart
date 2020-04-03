@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'page_view_state.dart';
 
-class BaseModelView extends ChangeNotifier {
+class ViewModel extends ChangeNotifier {
   final PageViewState pageViewState;
-  BaseModelView( 
+  ViewModel( 
     {pageViewStateValue : PageViewStateValue.PageViewInit})
     : pageViewState = PageViewState(pageViewStateValue);  
 }

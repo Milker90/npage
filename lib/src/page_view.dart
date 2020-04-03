@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'model_view.dart';
 import 'page_build_widget.dart';
 import 'page_view_state.dart';
+import 'view_model.dart';
 
-abstract class PageView<T extends ModelView, S extends PageViewState> extends StatelessWidget
+abstract class PageView<T extends ViewModel, S extends PageViewState> extends StatelessWidget
     implements PageBuildWidget {
   
   initData(BuildContext context) {
