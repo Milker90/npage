@@ -6,6 +6,8 @@ import 'view_model.dart';
 
 abstract class NPageView<T extends ViewModel, S extends NPageViewState> extends StatelessWidget
     implements NPageBuildWidget {
+
+  NPageView({Key key}) : super(key : key);
   
   initData(BuildContext context) {
 
