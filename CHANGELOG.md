@@ -6,6 +6,6 @@
 
 * update class name
 
-## 1.0.3
+## 1.0.4
 
 * fix assert bug
