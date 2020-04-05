@@ -5,19 +5,12 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:npage/npage.dart';
 
 class MyViewModel extends ViewModel {
-
-  MyViewModel({ NPageViewStateValue pageViewStateValue = NPageViewStateValue.Init}) 
-  : super(pageViewStateValue : pageViewStateValue);
+  MyViewModel({NPageViewStateValue pageViewStateValue = NPageViewStateValue.Init})
+      : super(pageViewStateValue: pageViewStateValue);
 }
 
 class MyPage extends NPageView {
-  MyPage(
-      {Key key,
-      this.initName,
-      this.successName,
-      this.emptyName,
-      this.loadingName,
-      this.failedName});
+  MyPage({Key key, this.initName, this.successName, this.emptyName, this.loadingName, this.failedName});
 
   final String initName;
   final String successName;

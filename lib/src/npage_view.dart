@@ -6,12 +6,9 @@ import 'view_model.dart';
 
 abstract class NPageView<T extends ViewModel, S extends NPageViewState> extends StatelessWidget
     implements NPageBuildWidget {
+  NPageView({Key key}) : super(key: key);
 
-  NPageView({Key key}) : super(key : key);
-  
-  initData(BuildContext context) {
-
-  }
+  initData(BuildContext context) {}
 
   T getModelView(BuildContext context, {bool listent: true}) {
     return Provider.of<T>(context, listen: listent);
@@ -21,24 +18,19 @@ abstract class NPageView<T extends ViewModel, S extends NPageViewState> extends 
   Widget build(BuildContext context) {
     debugPrint('${this.runtimeType} is building');
     initData(context);
-    return Consumer<S>(
-      builder: (context, pageState, child) {
+    return Consumer<S>(builder: (context, pageState, child) {
       if (pageState.state == NPageViewStateValue.Init) {
         return buildInitWidget(context);
       } else if (pageState.state == NPageViewStateValue.ShowFullScreenLoading) {
         return buildFullScreenLoadingWidget(context);
       } else if (pageState.state == NPageViewStateValue.LoadedFail) {
-        return buildLoadedFailWidget(
-          context
-        );
-      } else if (pageState.state ==
-          NPageViewStateValue.LoadedSuccess) {
+        return buildLoadedFailWidget(context);
+      } else if (pageState.state == NPageViewStateValue.LoadedSuccess) {
         return buildContent(context);
       } else if (pageState.state == NPageViewStateValue.Empty) {
         return buildEmptyWidget(context);
       } else {
-        debugPrint(
-            'build page view failed: ${pageState.state} is not support');
+        debugPrint('build page view failed: ${pageState.state} is not support');
         return Container(child: null);
       }
     });
