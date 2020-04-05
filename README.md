@@ -175,7 +175,7 @@ npage is a library to implement basic pages. It uses MVVM architecture.
     
 ```
 
-3，use pageviewhelper to create a MultiProvider
+3, use pageviewhelper to create a MultiProvider
 
 ```
     // use default page view state value
@@ -191,6 +191,6 @@ npage is a library to implement basic pages. It uses MVVM architecture.
 
 
 ## Note
-Do not use directly pageviewhelper to create a MultiProvider for a tabbarview widget，
+Do not use directly pageviewhelper to create a MultiProvider for a tabbarview widget, 
 because in tabbarview, when the page is switched, the ViewModel in the page will be disposed
 
