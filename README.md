@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/Milker90/npage.svg?branch=master)](https://travis-ci.org/Milker90/npage)
+
 # npage
 
 npage is a library to implement basic pages. It uses MVVM architecture.
