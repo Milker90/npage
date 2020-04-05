@@ -179,9 +179,9 @@ npage is a library to implement basic pages. It uses MVVM architecture.
     // use default page view state value
     var widget = PageViewHelper.createPage(HomeViewModel(1), HomePageView());
 
-    // change page view state value to PageViewShowFullScreenLoading
+    // change page view state value to ShowFullScreenLoading
     var widget = PageViewHelper.createPage(HomeViewModel(1,
-    pageViewStateValue:PageViewStateValue.PageViewShowFullScreenLoading), 
+    pageViewStateValue:PageViewStateValue.ShowFullScreenLoading), 
     HomePageView());
 
 ```
