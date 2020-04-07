@@ -6,8 +6,8 @@ class ViewModel extends ChangeNotifier {
 
   BuildContext context;
 
-  setContext(BuildContext context) {
-    if (context == null) context = context;
+  setContext(BuildContext c) {
+    if (context == null) context = c;
   }
   
   @override
