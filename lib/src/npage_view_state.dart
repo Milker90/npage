@@ -4,7 +4,7 @@ import 'package:flutter/cupertino.dart';
 enum NPageViewStateValue { Init, LoadedSuccess, LoadedFail, ShowFullScreenLoading, Empty }
 
 class NPageViewState extends ChangeNotifier {
-  NPageViewState(NPageViewStateValue state) : _state = state;
+  NPageViewState({NPageViewStateValue state = NPageViewStateValue.Init}) : _state = state;
 
   NPageViewStateValue _state = NPageViewStateValue.Init;
 
