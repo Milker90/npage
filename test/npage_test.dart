@@ -4,13 +4,9 @@ import 'package:flutter_test/flutter_test.dart';
 
 import 'package:npage/npage.dart';
 
-class MyViewModel extends ViewModel {
-  MyViewModel(NPageViewState pageViewState) : super(pageViewState);
-  MyViewModel.pageValue({NPageViewStateValue pageViewStateValue})
-      : super.pageValue(pageViewStateValue: pageViewStateValue);
-}
+class MyViewModel extends ViewModel {}
 
-class MyPage extends NPageView {
+class MyPage extends NPageView<MyViewModel, NPageViewState> {
   MyPage({Key key, this.initName, this.successName, this.emptyName, this.loadingName, this.failedName});
 
   final String initName;
@@ -71,8 +67,8 @@ void main() {
     MyPage pageView = MyPage(
       initName: 'init',
     );
-    MyViewModel viewModel = MyViewModel.pageValue(pageViewStateValue: NPageViewStateValue.Init);
-    var widget = NPageViewHelper.createPage(viewModel, pageView);
+    MyViewModel viewModel = MyViewModel();
+    var widget = NPageViewHelper.createPageWithPT(pageView, viewModel);
     await tester.pumpWidget(MaterialApp(
       home: widget,
     ));
@@ -85,8 +81,9 @@ void main() {
     MyPage pageView = MyPage(
       loadingName: 'loading',
     );
-    MyViewModel viewModel = MyViewModel.pageValue(pageViewStateValue: NPageViewStateValue.ShowFullScreenLoading);
-    var widget = NPageViewHelper.createPage(viewModel, pageView);
+    MyViewModel viewModel = MyViewModel();
+    NPageViewState pageViewState = NPageViewState(state: NPageViewStateValue.ShowFullScreenLoading);
+    var widget = NPageViewHelper.createPageWithPTS(pageView, viewModel, pageViewState);
     await tester.pumpWidget(MaterialApp(
       home: widget,
     ));
@@ -99,8 +96,9 @@ void main() {
     MyPage pageView = MyPage(
       successName: 'success',
     );
-    MyViewModel viewModel = MyViewModel.pageValue(pageViewStateValue: NPageViewStateValue.LoadedSuccess);
-    var widget = NPageViewHelper.createPage(viewModel, pageView);
+    MyViewModel viewModel = MyViewModel();
+    NPageViewState pageViewState = NPageViewState(state: NPageViewStateValue.LoadedSuccess);
+    var widget = NPageViewHelper.createPageWithPTS(pageView, viewModel, pageViewState);
     await tester.pumpWidget(MaterialApp(
       home: widget,
     ));
@@ -113,8 +111,9 @@ void main() {
     MyPage pageView = MyPage(
       failedName: 'fail',
     );
-    MyViewModel viewModel = MyViewModel.pageValue(pageViewStateValue: NPageViewStateValue.LoadedFail);
-    var widget = NPageViewHelper.createPage(viewModel, pageView);
+    MyViewModel viewModel = MyViewModel();
+    NPageViewState pageViewState = NPageViewState(state: NPageViewStateValue.LoadedFail);
+    var widget = NPageViewHelper.createPageWithPTS(pageView, viewModel, pageViewState);
     await tester.pumpWidget(MaterialApp(
       home: widget,
     ));
@@ -127,8 +126,10 @@ void main() {
     MyPage pageView = MyPage(
       emptyName: 'empty',
     );
-    MyViewModel viewModel = MyViewModel.pageValue(pageViewStateValue: NPageViewStateValue.Empty);
-    var widget = NPageViewHelper.createPage(viewModel, pageView);
+    MyViewModel viewModel = MyViewModel();
+    NPageViewState pageViewState = NPageViewState(state: NPageViewStateValue.Empty);
+    var widget = NPageViewHelper.createPageWithPTS(pageView, viewModel, pageViewState);
+
     await tester.pumpWidget(MaterialApp(
       home: widget,
     ));

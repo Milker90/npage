@@ -1,12 +1,20 @@
 import 'package:flutter/material.dart';
-import 'npage_view_state.dart';
+import 'package:provider/provider.dart';
 
 class ViewModel extends ChangeNotifier {
   bool isDisposed = false;
-  final NPageViewState pageViewState;
-  ViewModel(this.pageViewState);
-  ViewModel.pageValue({NPageViewStateValue pageViewStateValue = NPageViewStateValue.Init})
-      : pageViewState = NPageViewState(state: pageViewStateValue);
+
+  BuildContext context;
+
+  setContext(BuildContext context) {
+    if (context == null) context = context;
+  }
+
+  dynamic getModelView(BuildContext context) {
+    assert(context == null, 'viewmodel context is null');
+    return Provider.of<dynamic>(context, listen: false);
+  }
+
   @override
   void dispose() {
     isDisposed = true;

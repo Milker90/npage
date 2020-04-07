@@ -10,13 +10,14 @@ abstract class NPageView<T extends ViewModel, S extends NPageViewState> extends 
 
   initData(BuildContext context) {}
 
-  T getModelView(BuildContext context, {bool listent: true}) {
-    return Provider.of<T>(context, listen: listent);
+  T getModelView(BuildContext context, {bool listen: true}) {
+    return Provider.of<T>(context, listen: listen);
   }
 
   @override
   Widget build(BuildContext context) {
     debugPrint('${this.runtimeType} is building');
+    getModelView(context, listen: false).setContext(context);
     initData(context);
     return Consumer<S>(builder: (context, pageState, child) {
       if (pageState.state == NPageViewStateValue.Init) {
