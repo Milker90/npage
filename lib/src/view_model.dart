@@ -8,7 +8,7 @@ class ViewModel extends ChangeNotifier {
   setContext(BuildContext c) {
     if (context != c) context = c;
   }
-  
+
   @override
   void dispose() {
     isDisposed = true;
