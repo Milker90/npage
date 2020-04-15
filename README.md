@@ -8,7 +8,7 @@ npage is a library to implement basic pages. It uses MVVM architecture.
 ```
     dependencies:
         url: git@github.com:Milker90/npage.git
-        ref: 1.0.4
+        ref: 1.0.5
 ```
 
 ## Usage
@@ -25,11 +25,10 @@ npage is a library to implement basic pages. It uses MVVM architecture.
         // so If HomeViewModel and PageViewState change at the same time，
         // call only pageViewState.notifyPageState
 
-        HomeViewModel(data, {PageViewStateValue pageViewStateValue}) : 
-        _data = data, 
-        super(pageViewStateValue: pageViewStateValue);
+        
+        HomeViewModel(data) : _data = data;
 
-        int _data;
+        final int _data;
         List<Model> _modelData;
         bool _isInitData = false;
 
@@ -45,7 +44,8 @@ npage is a library to implement basic pages. It uses MVVM architecture.
             _isInitData = true;
             Future.delayed(Duration(seconds: 3), () {
             _modelData = [];
-            pageViewState.notifyPageState(PageViewStateValue.LoadedSuccess);
+            final pageState = Provider.of<PageViewState>(context, listen: false)
+            pageState.notifyPageState(PageViewStateValue.LoadedSuccess);
             _isInitData = false;
             });            
         }
@@ -179,12 +179,10 @@ npage is a library to implement basic pages. It uses MVVM architecture.
 
 ```
     // use default page view state value
-    var widget = PageViewHelper.createPage(HomeViewModel(1), HomePageView());
+    var widget = NPageViewHelper.createPageWithPT(HomePageView(), HomeViewModel(1));    
 
     // change page view state value to ShowFullScreenLoading
-    var widget = PageViewHelper.createPage(HomeViewModel(1,
-    pageViewStateValue:PageViewStateValue.ShowFullScreenLoading), 
-    HomePageView());
+    var widget = NPageViewHelper.createPageWithPTS(HomePageView(), HomeViewModel(1), NPageViewState(state: NPageViewStateValue.ShowFullScreenLoading));
 
 ```
 
