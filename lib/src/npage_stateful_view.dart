@@ -26,6 +26,10 @@ class NPageStatefulViewState<T extends ViewModel, S extends NPageViewState> exte
 
   @override
   Widget build(BuildContext context) {    
+    return npbuild(context);
+  }
+
+  Widget npbuild(BuildContext context) {
     debugPrint('${this.runtimeType} is building');
     getModelView(context, listen: false).setContext(context);
     return Consumer<S>(builder: (context, pageState, child) {
