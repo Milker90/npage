@@ -8,10 +8,10 @@ class NPageStatefulView extends StatefulWidget {
   NPageStatefulView({Key key}) : super(key: key);
 
   @override
-  _NPageStatefulViewState createState() => _NPageStatefulViewState();
+  NPageStatefulViewState createState() => NPageStatefulViewState();
 }
 
-class _NPageStatefulViewState<T extends ViewModel, S extends NPageViewState> extends State<NPageStatefulView> with AutomaticKeepAliveClientMixin implements NPageBuildWidget{
+class NPageStatefulViewState<T extends ViewModel, S extends NPageViewState> extends State<NPageStatefulView> with AutomaticKeepAliveClientMixin implements NPageBuildWidget{
 
   @override
   void initState() {   
