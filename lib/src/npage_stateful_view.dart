@@ -13,8 +13,7 @@ class NPageStatefulView extends StatefulWidget {
 
 class NPageStatefulViewState<T extends ViewModel, S extends NPageViewState, P extends StatefulWidget> extends State<P> implements NPageBuildWidget{
   @override
-  void initState() {   
-    initData(null);  
+  void initState() {       
     super.initState();    
   }
 
@@ -30,6 +29,7 @@ class NPageStatefulViewState<T extends ViewModel, S extends NPageViewState, P ex
   }
 
   Widget npbuild(BuildContext context) {
+    initData(context);  
     debugPrint('${this.runtimeType} is building');
     getModelView(context, listen: false).setContext(context);
     return Consumer<S>(builder: (context, pageState, child) {
