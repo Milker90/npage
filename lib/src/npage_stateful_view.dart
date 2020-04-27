@@ -11,7 +11,7 @@ class NPageStatefulView extends StatefulWidget {
   NPageStatefulViewState createState() => NPageStatefulViewState();
 }
 
-class NPageStatefulViewState<T extends ViewModel, S extends NPageViewState> extends State<NPageStatefulView> implements NPageBuildWidget{
+class NPageStatefulViewState<T extends ViewModel, S extends NPageViewState, P extends StatefulWidget> extends State<P> implements NPageBuildWidget{
   @override
   void initState() {   
     initData(null);  
