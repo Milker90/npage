@@ -11,8 +11,7 @@ class NPageStatefulView extends StatefulWidget {
   NPageStatefulViewState createState() => NPageStatefulViewState();
 }
 
-class NPageStatefulViewState<T extends ViewModel, S extends NPageViewState> extends State<NPageStatefulView> with AutomaticKeepAliveClientMixin implements NPageBuildWidget{
-
+class NPageStatefulViewState<T extends ViewModel, S extends NPageViewState> extends State<NPageStatefulView> implements NPageBuildWidget{
   @override
   void initState() {   
     initData(null);  
@@ -28,7 +27,6 @@ class NPageStatefulViewState<T extends ViewModel, S extends NPageViewState> exte
   @override
   Widget build(BuildContext context) {    
     debugPrint('${this.runtimeType} is building');
-    super.build(context);
     getModelView(context, listen: false).setContext(context);
     return Consumer<S>(builder: (context, pageState, child) {
       if (pageState.state == NPageViewStateValue.Init) {
@@ -90,8 +88,4 @@ class NPageStatefulViewState<T extends ViewModel, S extends NPageViewState> exte
     throw UnimplementedError();
   }
 
-  @override
-  bool get wantKeepAlive {
-    return true;
-  }
 }
