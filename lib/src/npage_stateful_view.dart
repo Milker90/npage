@@ -11,10 +11,11 @@ class NPageStatefulView extends StatefulWidget {
   NPageStatefulViewState createState() => NPageStatefulViewState();
 }
 
-class NPageStatefulViewState<T extends ViewModel, S extends NPageViewState, P extends StatefulWidget> extends State<P> implements NPageBuildWidget{
+class NPageStatefulViewState<T extends ViewModel, S extends NPageViewState, P extends StatefulWidget> extends State<P>
+    implements NPageBuildWidget {
   @override
-  void initState() {       
-    super.initState();    
+  void initState() {
+    super.initState();
   }
 
   initData(BuildContext context) {}
@@ -24,12 +25,12 @@ class NPageStatefulViewState<T extends ViewModel, S extends NPageViewState, P ex
   }
 
   @override
-  Widget build(BuildContext context) {    
+  Widget build(BuildContext context) {
     return npbuild(context);
   }
 
   Widget npbuild(BuildContext context) {
-    initData(context);  
+    initData(context);
     debugPrint('${this.runtimeType} is building');
     getModelView(context, listen: false).setContext(context);
     return Consumer<S>(builder: (context, pageState, child) {
@@ -52,44 +53,43 @@ class NPageStatefulViewState<T extends ViewModel, S extends NPageViewState, P ex
 
   @override
   Widget buildContent(BuildContext context) {
-      // TODO: implement buildContent
-      throw UnimplementedError();
-    }
-  
-    @override
-    Widget buildEmptyWidget(BuildContext context) {
-      // TODO: implement buildEmptyWidget
-      throw UnimplementedError();
-    }
-  
-    @override
-    Widget buildFullScreenLoadingWidget(BuildContext context) {
-      // TODO: implement buildFullScreenLoadingWidget
-      throw UnimplementedError();
-    }
-  
-    @override
-    Widget buildInitWidget(BuildContext context) {
-      // TODO: implement buildInitWidget
-      throw UnimplementedError();
-    }
-  
-    @override
-    Widget buildLoadedFailWidget(BuildContext context) {
-      // TODO: implement buildLoadedFailWidget
-      throw UnimplementedError();
-    }
-  
-    @override
-    emptyRetryCallback(BuildContext context) {
-      // TODO: implement emptyRetryCallback
-      throw UnimplementedError();
-    }
-  
-    @override
-    failRetryCallback(BuildContext context) {
-    // TODO: implement failRetryCallback
+    // TODO: implement buildContent
     throw UnimplementedError();
   }
 
+  @override
+  Widget buildEmptyWidget(BuildContext context) {
+    // TODO: implement buildEmptyWidget
+    throw UnimplementedError();
+  }
+
+  @override
+  Widget buildFullScreenLoadingWidget(BuildContext context) {
+    // TODO: implement buildFullScreenLoadingWidget
+    throw UnimplementedError();
+  }
+
+  @override
+  Widget buildInitWidget(BuildContext context) {
+    // TODO: implement buildInitWidget
+    throw UnimplementedError();
+  }
+
+  @override
+  Widget buildLoadedFailWidget(BuildContext context) {
+    // TODO: implement buildLoadedFailWidget
+    throw UnimplementedError();
+  }
+
+  @override
+  emptyRetryCallback(BuildContext context) {
+    // TODO: implement emptyRetryCallback
+    throw UnimplementedError();
+  }
+
+  @override
+  failRetryCallback(BuildContext context) {
+    // TODO: implement failRetryCallback
+    throw UnimplementedError();
+  }
 }
